@@ -1,4 +1,4 @@
-MASTER COMPANDER - V.0.2
+MASTER COMPANDER - V.0.2.5
 By: Helios Martinez Dominguez
 Estudio Siddhi - Copyleft 2021.
 
@@ -7,9 +7,10 @@ As for now, it processes 16bit audio files using COMPANDER_1 and SIN-COMPANDER c
 Sometimes, binaries distributed may fail to execute, in such case you need to compile the application from source.
 This is due to differences between distributions (x86/x64, etc).
 
+
 How to compile from source:
 
-For the compilation process you would need GCC (GNU C compiler) installed (most Linux distributions have it by default).
+For the compilation process you would need GCC installed (GNU C compiler), most Linux distributions have it by default.
 First, after decompressing the files into the master-compander/ directory, you have to provide the "compile.sh" with execution priviledges:
 
 	$ sudo chmod 775 compile.sh
@@ -31,13 +32,28 @@ Example:
 	$ gcc -o sin-compander sin-compander.c -std=c99 -lm
 	$ sudo chmod 775 master-compander.sh
 
+
+How to install (into Linux):
+
+Decompress the .zip provided in the Git-Hub website.
+Open the Terminal Emulator or Shell.
+Provide installer script with execution priviledges:
+
+	$ sudo chmod 775 install-linux.sh
+
+Execute the shell script:
+
+	$ ./install-linux.sh
+
+Automatically, all needed files will be compilated and copied into /usr/bin directory.
+
+
 How to use it:
 
 Open the Terminal Emulator or Shell (bash, zsh, etc).
-Get into the master-compander/ folder or directory.
-Then execute:
+Once you have installed it, execute:
 
-$ ./master-compander.sh path/audiofile.wav
+$ master-compander path/audiofile.wav
 
 Where "path/audiofile.wav" is the audio file to be mastered. That is pretty much it!.
 The Master Compander will check on the audiofile's RMS and Peak values and provide for RMS and Peak values for the output audio file.
@@ -77,23 +93,33 @@ This is a typical screen:
 	supercuerdas/supercuerdas_09.wav-master.wav
 	helios@helios-CQ1115LA:~$ 
 
+From version 0.2.5, there is an extra process introduced to master-compander execution, that is bulk-compander.
+Bulk Compander allows to masterize a whole album with just one command, providing the directory where the audio files are.
+
+Example:
+
+	$ bulk-compander wavs/
+
+Bulk Compander masterizes each .wav encountered into the directory with Master Compander, providing normal output.
+
+
 How it works:
 
-Master Compander works making use of five main processes, each provided as a separate executable and joined together through a script shell.
-First, the script file provides for a Title, Author and Copyleft information.
+Master Compander works making use of five processes, each provided as a separate executable and joined together through a main script.
+First, the script provides for a Title, Author and Copyleft information.
 At this point, Master Compander shows WAV header file information.
-Then, RMS of the input is calculated by scanning the whole audiofile.
+Then, RMS of the input is calculated by scanning the whole audio file.
 After that, Peak value is also calculated scannig the whole audio file.
 Up to this point there is no process being done to the audio file.
-This information is required for debugging purposes due to a bug in which some WAV files header information is lost due to poor handling (i have to fix that!).
-Then, COMPANDER_1 is exectued on the audio file, providing a temporal audio file named after the input file with the "-pre-master.wav" suffix added.
+Then, COMPANDER_1 is exectued on the audio file, providing a temporal audio file named after the input file with the "-premaster.wav" suffix added.
 This process increases harmonic content by applying a compressing curve to the whole audio file data.
-Then, SIN-COMPANDER is executed on the pre-master audio file, postprocessing it.
+Then, SIN-COMPANDER is executed on the premaster audio file, postprocessing it.
 SIN-COMPANDER process it through a companding curve, expanding and compressing the dynamic range.
 COMPANDER_1 and SIN_COMPANDER are not linear compressors or expanders, they are based on mathematical curves, different each one.
 After this process is done, the output file is named after the original audio file with the "-master.wav" suffix.
-When the whole operation is complete, the temporal file (pre-master) is removed.
+When the whole operation is complete, the temporal file (premaster) is removed.
 Output audio file is then measured again for it's RMS and Peak values.
+
 
 About the author:
 
@@ -105,15 +131,15 @@ https://heliosmartinezdominguez.bandcamp.com
 https://avrvm-music.bandcamp.com
 https://bounces.bandcamp.com
 https://judaslion.bandcamp.com
+https://soundcloud.com/laspopularesmakinitas
 
-Bugs fixed:
-- Some WAV files with non-standard headers required RAW importing after the mastering process, due to incomplete wav header management.
 
 Known bugs:
-- Incomplete handling when input file is inexisting or filename contain spaces.
+- Incorrect handling when input filename contain spaces or is inexisting.
+
 
 TODO:
 - Percentage increase and progress bar while processing audio file.
-- Migrate master-compander.sh to C language.
 - 24bit precission handling.
 - AIFF support.
+
