@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     // Check command-line arguments
     if (argc != 3)
     {
-        printf("Usage: ./sin-compander input.wav output.wav\n");
+        printf("Usage: sin-compander input.wav output.wav\n");
         return 1;
     }
 

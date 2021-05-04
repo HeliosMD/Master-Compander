@@ -1,4 +1,4 @@
-MASTER COMPANDER - V.0.2 - APPLICATIONS
+MASTER COMPANDER - V.0.2.5 - APPLICATIONS
 By: Helios Martinez Dominguez
 Estudio Siddhi - Copyleft 2021.
 
@@ -9,12 +9,14 @@ Metering applications:
 
 	- rms: calculates the RMS of an audio file.
 	- peak: measures the peak value of an audio file.
-	- wav_header: checks particularities of an audio file header.
+	- wav_header: validates an audio file header.
 
 Processing applications:
 
-	- compander_1 : process an audio file with a companding curve (expanding: factors 0.1 to 1.0, compressing: factors 1.0 to 10.0).
-	- sin-compander: process an audio file with a companding curve (expanding below -6dB, compressing above -6dB).
+	- compander_1 : processes an audio file with a companding curve (expanding: factors 0.1 to 1.0, compressing: factors 1.0 to 10.0).
+	- sin-compander: processes an audio file with a companding curve (expanding below -6dB, compressing above -6dB).
 
-These applications can be used separatedly from Master Compander, since they are applications themselves.
-Feel free to experiment with them "ad libitum".
+Bulk application:
+
+	- bulk-compander: processes several audio files with master-compander, given the directory where they are contained.
+

@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     // Check command-line arguments
     if (argc != 4)
     {
-        printf("Usage: ./compander_1 input.wav output.wav factor\n");
+        printf("Usage: compander_1 input.wav output.wav factor\n");
         return 1;
     }
 
