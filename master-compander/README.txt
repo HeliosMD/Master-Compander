@@ -53,7 +53,7 @@ How to use it:
 Open the Terminal Emulator or Shell (bash, zsh, etc).
 Once you have installed it, execute:
 
-$ master-compander path/audiofile.wav
+	$ master-compander path/audiofile.wav
 
 Where "path/audiofile.wav" is the audio file to be mastered. That is pretty much it!.
 The Master Compander will check on the audiofile's RMS and Peak values and provide for RMS and Peak values for the output audio file.
