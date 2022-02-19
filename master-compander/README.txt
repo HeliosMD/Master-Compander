@@ -131,15 +131,18 @@ https://heliosmartinezdominguez.bandcamp.com
 https://avrvm-music.bandcamp.com
 https://bounces.bandcamp.com
 https://judahs-lion.bandcamp.com
-https://soundcloud.com/laspopularesmakinitas
+https://laspopularesmakinitas.bandcamp.com
+https://chr0.bandcamp.com
+https://arnv.bandcamp.com
 
 
 Known bugs:
-- Incorrect handling when input filename contain spaces or is inexisting.
+- Incorrect handling when input filename contain spaces, parenthesis or is inexisting.
 
 
 TODO:
 - Percentage increase and progress bar while processing audio file.
 - 24bit precission handling.
+- 32bit floating point files handling.
 - AIFF support.
 
